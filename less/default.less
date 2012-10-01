@@ -1,10 +1,20 @@
 @import "mixins";
 @import "../bootstrap/less/bootstrap";
 
+#twitterlink:link,
+#twitterlink:active,
+#twitterlink:visited
+{
+  border: 0px;
+  color: blue;  
+  padding: 0;
+  margin: 0;
+}
+
 body {
 	padding:0px;
 	margin:0px;
-	background-color:#f5b128;
+	background-color:#58858a;
 }
 
 a {
@@ -24,12 +34,11 @@ a {
 #navigation {
 	position:fixed;
 	width:100%;
-	display:none;
 	bottom:-2px;
 	z-index:10;
 	#linkBar {
 		padding:12px 10px 12px 10px;
-		background-color:rgba(255,255,255,0.2);
+		background-color:rgba(247, 192, 83, 0.8);
 		font-size:1.3em;
 		font-family: 'PT Sans Narrow', sans-serif;
 		font-weight:normal;
@@ -52,8 +61,30 @@ a {
 	}
 }
 
+.position_absolute {  position:absolute; }
+
+@media (min-width:2401px)                         and (orientation:landscape) { .slide {  height: 1800px; } }
+@media (min-width:1201px) and (max-width: 2400px) and (orientation:landscape) { .slide {  height: 1000px; } }
+@media (min-width:1001px) and (max-width: 1200px) and (orientation:landscape) { .slide {  height: 900px; } }
+@media (min-width: 601px) and (max-width: 1000px) and (orientation:landscape) { .slide {  height: 600px; } }
+@media                        (max-width:  600px) and (orientation:landscape) { .slide {  height: 400px; } }
+
+#cv slide { height: auto; }
+
+#s0,#s1,#s3,#s5 { background:transparent url('../img/noiseOverlay.png') repeat top left; }
+#s0 {  background-color: #C0480B; }
+#s1 {  background-color: #0088CC; }
+#s2 {  background-color: #A0B96F; }
+#s3 {  background-color: #bf9424; }
+#s4 {  background-color: #9aaa79; }
+#s5 {  background-color: #AA0063; }
+#s6 {  background-color: #58858a; }
+#s7 {  background-color: #de4d0c; }
+#s8 {  background-color: #A0B96F; }
+#s9 {  background-color: #c0480b; }
+.slide.last {  padding-bottom: 200px; }
 .slide {
-	position:absolute;
+        border-top: 6px #ddd solid;
 	overflow:hidden;
 	left:0px;
 	.text-shadow(0, -1px, 0px, rgba(0,0,0,0.4));
@@ -67,12 +98,16 @@ a {
 			font-weight:bold;
 			margin-bottom:20px;
 		}
-		p, table, ul {
+		p, table, ul, dl {
 			font-size:1.5em;
 			line-height:1.6em;
 			font-family: 'Vollkorn', serif;
 			font-weight:normal;
 			margin:10px 0px;
+                        dt, dd {
+                          line-height: 150%;
+                        }
+                        dt { font-family: 'PT Sans Narrow',sans-serif; }
 		}
 		table {
 					td {
@@ -104,6 +139,7 @@ a {
 						color:#FF0;
 						background-color:rgba(0,0,0,0.1);
 					}
+                      
 				}
 			}
 	}
@@ -133,32 +169,6 @@ a {
 	}
 }
 
-.slide:before {
-	z-index:-2;
-	content: "";
-	position:absolute;
-	left:0px;
-	top:0px;
-	display:block;
-	width:100%;
-	height:100%;
-	.gradient(rgba(0,0,0,0),rgba(0,0,0,0.1));
-}
-
-.slide:after {
-	content: "";
-	z-index:-3;
-	position:absolute;
-	left:0px;
-	top:0px;
-	display:block;
-	width:100%;
-	height:100%;
-	background:transparent url('../img/noiseOverlay.png') repeat top left;
-  .retina {
-    .backgroundSize(200px, 279/2px);
-  }
-}
 
 #twitter {
 	position:relative;
@@ -166,7 +176,7 @@ a {
 	white-space:normal;
 	#tweet {
 		.opacityForAll(70);
-		display:block;
+		display:none;
 		position:absolute;
 		bottom:20px;
 		right:0px;
@@ -198,7 +208,7 @@ a {
 			   content: "";
 			   position: absolute;
 			   top: 100%;
-			   right: 165px;
+			   right: 275px;
 			   border-top: 15px solid black;
 			   border-top-color: inherit;
 			   border-left: 15px solid transparent;
@@ -208,7 +218,6 @@ a {
 	}
 	&:hover #tweet {
 		height:150px;
-		width:140%;	
 		.opacityForAll(90);
 	}
 }
